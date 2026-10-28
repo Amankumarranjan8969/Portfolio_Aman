@@ -1,76 +1,127 @@
-# Deployment Guide: GitHub Pages CI/CD
+# Complete Deployment Guide: Aman Kumar Ranjan Engineering Portfolio
 
+**Primary Deployment URL**: `https://amankumarranjan8969.github.io/`  
 **Target Repository**: `https://github.com/Amankumarranjan8969/Amankumarranjan8969.github.io`  
-**Target Live URL**: `https://amankumarranjan8969.github.io/`  
-**Build Tool**: Vite 6 + React 18 + TypeScript  
+**Alternative Repository Names**: `portfolio-aman`, `portfolio` (works seamlessly due to relative asset paths `base: './'`)  
+**Technology Stack**: Vite 6 + React 18 + TypeScript + Tailwind CSS (Zero external runtime backend required)
 
 ---
 
-## 1. Automated Deployment via GitHub Actions (Recommended)
+## Architecture Readiness Summary
 
-The repository includes a production-grade CI/CD workflow at [`.github/workflows/deploy.yml`](file:///d:/Portfolio_AMAN/.github/workflows/deploy.yml).
+| Feature | Implementation | Verified Status |
+| :--- | :--- | :--- |
+| **Asset URLs** | Relative (`base: './'`) in `vite.config.ts` | Verified (works at root domain or any subdirectory) |
+| **Code Splitting** | Custom manualChunks (`vendor`, `charts`, `icons`, `index`) | Verified (optimal caching, 0 empty chunks) |
+| **Client Routing** | Dual defense: Hash linking (`#projects`, `#profile`) + `public/404.html` | Verified (zero 404s on deep reload) |
+| **SEO & Crawlers** | `public/robots.txt` + `public/sitemap.xml` | Verified (crawls all 12 view anchors) |
+| **Social Previews** | OpenGraph & Twitter Card meta tags with authentic portrait photo | Verified |
+| **Vercel Support** | `vercel.json` SPA rewrite configuration | Verified |
+| **Netlify / Cloudflare** | `netlify.toml` + `public/_redirects` | Verified |
+| **Automated CI/CD** | `.github/workflows/deploy.yml` GitHub Actions workflow | Verified |
+| **One-Click Deploy** | `npm run deploy` via `gh-pages` | Verified |
 
-### Step-by-Step Setup:
-1. **Create the GitHub Pages Repository**:
-   - Go to GitHub and create a new public repository named:
-     `Amankumarranjan8969.github.io`
-   - *Note*: Naming the repository `<username>.github.io` configures it as a user-level site, served directly from the root domain `https://amankumarranjan8969.github.io/`.
+---
 
-2. **Configure GitHub Pages Source**:
-   - In the repository settings on GitHub, navigate to **Settings** &rarr; **Pages**.
-   - Under **Build and deployment** &rarr; **Source**, select **GitHub Actions**.
+## Method 1: GitHub Pages via GitHub Actions (Recommended)
 
-3. **Push the Workspace to GitHub**:
-   ```bash
-   cd d:\Portfolio_AMAN
-   git remote add origin https://github.com/Amankumarranjan8969/Amankumarranjan8969.github.io.git
-   git branch -M main
-   git push -u origin main
+This method automatically compiles, runs all tests, and deploys every time you push to the `main` branch.
+
+### Step 1: Create the GitHub Repository
+1. Log in to [GitHub](https://github.com/new).
+2. Create a new public repository named:
+   ```text
+   Amankumarranjan8969.github.io
    ```
+   *(Naming it `<username>.github.io` publishes it directly to the root URL `https://amankumarranjan8969.github.io/`)*.
 
-4. **Automated Pipeline Execution**:
-   - The workflow will automatically trigger on push to `main`.
-   - The `build-and-test` job will install dependencies, execute the 13 automated Vitest tests, compile TypeScript, and bundle production assets with Vite.
-   - The `deploy` job will publish the static output to GitHub Pages with HTTPS enabled.
+### Step 2: Configure Pages to use GitHub Actions
+1. On your new repository page on GitHub, click **Settings** &rarr; **Pages** (in the left sidebar).
+2. Under **Build and deployment** &rarr; **Source**, select **GitHub Actions** from the dropdown menu.
+
+### Step 3: Link Remote & Push from your Terminal
+Open PowerShell or your terminal in `d:\Portfolio_AMAN` and run:
+
+```powershell
+cd d:\Portfolio_AMAN
+
+# If remote origin is not yet added:
+git remote add origin https://github.com/Amankumarranjan8969/Amankumarranjan8969.github.io.git
+
+# Set default branch to main and push
+git branch -M main
+git push -u origin main
+```
+
+### Step 4: Watch the Pipeline
+Go to the **Actions** tab on your GitHub repository. The workflow **"Deploy Engineering Portfolio to GitHub Pages"** will automatically:
+1. Check out code and set up Node.js 20.
+2. Run `npm ci`.
+3. Run all unit & integration tests (`npm run test`).
+4. Build the production bundle (`npm run build`).
+5. Upload and publish the site to `https://amankumarranjan8969.github.io/`.
 
 ---
 
-## 2. Local Manual Build & Preview
+## Method 2: Manual Deploy via `npm run deploy` (Fastest)
 
-To verify the production build locally before pushing:
+If you prefer deploying directly from your local terminal to GitHub Pages without waiting for GitHub Actions:
 
-```bash
-# 1. Install dependencies
-npm.cmd install
+```powershell
+cd d:\Portfolio_AMAN
 
-# 2. Run automated test suite
+# Runs tsc, vite build, and publishes dist directly to the gh-pages branch:
+npm.cmd run deploy
+```
+
+In GitHub Repository **Settings** &rarr; **Pages**, select **Deploy from a branch**, choose branch `gh-pages` and folder `/ (root)`.
+
+---
+
+## Method 3: Deploy to Vercel (1-Click)
+
+The repository includes a ready `vercel.json`.
+
+1. Go to [vercel.com](https://vercel.com/new).
+2. Import your `Amankumarranjan8969.github.io` or `portfolio-aman` repository.
+3. Framework preset: **Vite** (auto-detected).
+4. Click **Deploy**.
+5. Live within 30 seconds at your custom `.vercel.app` URL.
+
+---
+
+## Method 4: Deploy to Netlify
+
+The repository includes `netlify.toml` and `public/_redirects`.
+
+1. Go to [netlify.com](https://app.netlify.com/start).
+2. Connect your GitHub repository.
+3. Build command: `npm run build`
+4. Publish directory: `dist`
+5. Click **Deploy site**.
+
+---
+
+## Pre-Deployment Verification Checklist
+
+Before pushing, verify your build locally:
+
+```powershell
+# 1. Run automated tests (all 15 must pass)
 npm.cmd test
 
-# 3. Compile TypeScript & bundle production assets
+# 2. Compile TypeScript & bundle production assets
 npm.cmd run build
 
-# 4. Preview the production build locally (Port 4173)
+# 3. Test production preview on local port 4173
 npm.cmd run preview
 ```
 
----
-
-## 3. SPA Routing Configuration on GitHub Pages
-
-Because GitHub Pages is a static file host, navigating directly to deep client routes can result in a 404 error if not handled properly.
-This portfolio implements a dual-defense solution:
-1. **Hash-Based Deep Linking**: The application uses URL hashes (`#projects`, `#ai-ml`, `#evidence`, `#certificates`) which are parsed purely client-side by React.
-2. **`404.html` Redirection Script**: A standard SPA redirect fallback is bundled in `public/404.html` and automatically copied to `dist/404.html` during the build process.
-
----
-
-## 4. Post-Deployment Verification Checklist
-
-Once the repository is pushed and the Actions run completes, verify:
-- [ ] `https://amankumarranjan8969.github.io/` loads with HTTP 200.
-- [ ] Dark technical theme renders correctly.
-- [ ] All 15 cataloged projects can be searched and filtered.
-- [ ] Project detail modals open and display evaluation metrics.
-- [ ] Recharts graphs render smoothly without layout shift.
-- [ ] Verification links for SDMEL 2025 and NPTEL open active external portals.
-- [ ] GitHub Pages enforces HTTPS automatically.
+### Post-Deployment Sanity Checks
+- [ ] `https://amankumarranjan8969.github.io/` loads over HTTPS.
+- [ ] Day (White) theme renders cleanly by default.
+- [ ] Day / Night switcher in top-right header toggles smoothly and persists across refreshes.
+- [ ] Clicking **"Profile & Brand Logo"** displays the candidate portrait photo, vector monogram logo, and Haridwar University Enrolment No. `230103001`.
+- [ ] All 15 projects filter and search correctly.
+- [ ] Project detail modal opens and closes with Esc or close button.
+- [ ] External verification links for SDMEL 2025 (`https://sdmel2025.vercel.app/v?id=SDMEL0335`) and NPTEL open active validation portals.

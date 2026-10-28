@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://amankumarranjan8969.github.io/sitemap.xml

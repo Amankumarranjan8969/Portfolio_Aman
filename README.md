@@ -83,18 +83,21 @@ npm run dev
 ### Running Automated Tests
 
 ```bash
-# Execute full Vitest suite (13 unit and integration tests)
+# Execute full Vitest suite (15 unit and integration tests)
 npm test
 ```
 
-### Production Build
+### Production Build & One-Command Deploy
 
 ```bash
-# Compile TypeScript and bundle production assets
+# Compile TypeScript and bundle production assets to dist/
 npm run build
 
-# Preview production build locally
+# Preview production build locally (Port 4173)
 npm run preview
+
+# Deploy directly to GitHub Pages (gh-pages branch)
+npm run deploy
 ```
 
 ---
