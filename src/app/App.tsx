@@ -3,8 +3,10 @@ import { TabKey, Sidebar } from '../components/common/Sidebar';
 import { Header } from '../components/common/Header';
 import { Footer } from '../components/common/Footer';
 import { ProjectDetailModal } from '../features/projects/ProjectDetailModal';
+import { useTheme } from '../hooks/useTheme';
 
 // Features
+import { ProfileLogoView } from '../features/profile/ProfileLogoView';
 import { DashboardView } from '../features/dashboard/DashboardView';
 import { ProjectsView } from '../features/projects/ProjectsView';
 import { ResearchView } from '../features/research/ResearchView';
@@ -25,6 +27,7 @@ import { publicationsData } from '../data/publications';
 import { Project } from '../types/project';
 
 export const App: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
   const [activeTab, setActiveTab] = useState<TabKey>('overview');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -34,6 +37,7 @@ export const App: React.FC = () => {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '') as TabKey;
       const validTabs: TabKey[] = [
+        'profile',
         'overview',
         'projects',
         'ai-ml',
@@ -69,6 +73,8 @@ export const App: React.FC = () => {
 
   const renderActiveView = () => {
     switch (activeTab) {
+      case 'profile':
+        return <ProfileLogoView />;
       case 'overview':
         return (
           <DashboardView
@@ -125,7 +131,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F19] text-slate-100 flex flex-col md:flex-row antialiased selection:bg-cyan-500/20 selection:text-cyan-200">
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0B0F19] text-slate-900 dark:text-slate-100 flex flex-col md:flex-row antialiased transition-colors duration-200 selection:bg-blue-500/20 selection:text-blue-800 dark:selection:bg-cyan-500/20 dark:selection:text-cyan-200">
       {/* Sidebar Navigation */}
       <Sidebar
         activeTab={activeTab}
@@ -142,6 +148,8 @@ export const App: React.FC = () => {
           activeTab={activeTab}
           onOpenMobile={() => setIsMobileMenuOpen(true)}
           onNavigateToEvidence={handleNavigateToEvidence}
+          theme={theme}
+          onToggleTheme={toggleTheme}
         />
 
         <main className="flex-1 p-4 sm:p-8 max-w-7xl w-full mx-auto">

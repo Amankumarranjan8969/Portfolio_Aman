@@ -117,27 +117,27 @@ export const EvidenceView: React.FC = () => {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 uppercase tracking-wider mb-1">
+        <div className="flex items-center gap-2 text-xs font-mono text-emerald-600 dark:text-emerald-400 uppercase tracking-wider mb-1">
           <ShieldCheck className="w-4 h-4" />
           <span>Authenticity & Evidence Register</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
           Evidence Verification Center
         </h1>
-        <p className="text-sm text-slate-400 font-mono mt-1 max-w-3xl">
+        <p className="text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 max-w-3xl">
           Complete transparent register distinguishing verified institutional evidence from user-reported claims, in-progress prototypes, and planned proposals.
         </p>
       </div>
 
       {/* Audit Policy Statement */}
-      <Card className="bg-gradient-to-r from-emerald-950/30 to-slate-900 border-emerald-900/50">
+      <Card className="bg-gradient-to-r from-emerald-50/80 to-slate-50 dark:from-emerald-950/30 dark:to-slate-900 border-emerald-200 dark:border-emerald-900/50">
         <div className="flex items-start gap-3">
-          <ShieldCheck className="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" />
-          <div className="space-y-1.5 text-xs font-mono text-slate-300">
-            <h2 className="text-sm font-bold text-white uppercase tracking-wider">
+          <ShieldCheck className="w-6 h-6 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
+          <div className="space-y-1.5 text-xs font-mono text-slate-700 dark:text-slate-300">
+            <h2 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider">
               Zero-Fabrication Engineering Standard
             </h2>
-            <p className="text-slate-400 leading-relaxed font-sans text-xs">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-sans text-xs">
               This portfolio adheres to strict evidence auditing. All empirical model metrics ($R^2$, RMSE, MAE) are derived from inspected dissertation tables at the National Institute of Hydrology (NIH) Roorkee and CSIR-CBRI reports. NPTEL certificate scores and IDs reflect verified proctored records. No fictional user statistics, stars, or unverified claims are presented.
             </p>
           </div>
@@ -145,9 +145,9 @@ export const EvidenceView: React.FC = () => {
       </Card>
 
       {/* Evidence Register Table */}
-      <div className="overflow-x-auto rounded-xl border border-slate-800">
+      <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/40">
         <table className="w-full text-left text-xs font-mono">
-          <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+          <thead className="bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <tr>
               <th className="p-3">Category & Title</th>
               <th className="p-3">Institution / Context</th>
@@ -156,24 +156,24 @@ export const EvidenceView: React.FC = () => {
               <th className="p-3 text-right">Verification</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-800/60 bg-slate-900/40">
+          <tbody className="divide-y divide-slate-200 dark:divide-slate-800/60">
             {auditEntries.map((entry, idx) => (
-              <tr key={idx} className="hover:bg-slate-800/30">
+              <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
                 <td className="p-3">
-                  <span className="text-[10px] text-cyan-400 block uppercase font-mono">
+                  <span className="text-[10px] text-blue-600 dark:text-cyan-400 block uppercase font-mono">
                     {entry.category}
                   </span>
-                  <span className="font-semibold text-white">
+                  <span className="font-semibold text-slate-900 dark:text-white">
                     {entry.title}
                   </span>
                 </td>
-                <td className="p-3 text-slate-300 whitespace-nowrap">
+                <td className="p-3 text-slate-700 dark:text-slate-300 whitespace-nowrap">
                   {entry.institution}
                 </td>
                 <td className="p-3 whitespace-nowrap">
                   <Badge status={entry.status} size="sm" />
                 </td>
-                <td className="p-3 text-slate-400 max-w-md text-[11px] leading-relaxed">
+                <td className="p-3 text-slate-600 dark:text-slate-400 max-w-md text-[11px] leading-relaxed">
                   {entry.evidence}
                 </td>
                 <td className="p-3 text-right whitespace-nowrap">
@@ -182,13 +182,13 @@ export const EvidenceView: React.FC = () => {
                       href={entry.verificationUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 hover:underline"
+                      className="inline-flex items-center gap-1 text-blue-600 dark:text-cyan-400 hover:text-blue-700 dark:hover:text-cyan-300 hover:underline"
                     >
                       <span>Verify</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   ) : (
-                    <span className="text-slate-500 text-[11px]">Local Document</span>
+                    <span className="text-slate-400 dark:text-slate-500 text-[11px]">Local Document</span>
                   )}
                 </td>
               </tr>
@@ -199,26 +199,26 @@ export const EvidenceView: React.FC = () => {
 
       {/* Security & Confidentiality Audit */}
       <Card className="space-y-3">
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-300 font-mono flex items-center gap-2">
-          <FolderLock className="w-4 h-4 text-cyan-400" />
+        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 font-mono flex items-center gap-2">
+          <FolderLock className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
           Security, PII & Secret Handling Compliance
         </h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-300">
-          <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-            <span className="text-emerald-400 font-bold block mb-1">✔ PII Excluded</span>
-            <p className="text-slate-400 text-[11px]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono text-slate-700 dark:text-slate-300">
+          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-1">✔ PII Excluded</span>
+            <p className="text-slate-500 dark:text-slate-400 text-[11px]">
               Personal government identity cards (Aadhar, caste certificates) located on disk are strictly excluded from git staging and portfolio assets.
             </p>
           </div>
-          <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-            <span className="text-emerald-400 font-bold block mb-1">✔ Secrets Protected</span>
-            <p className="text-slate-400 text-[11px]">
+          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-1">✔ Secrets Protected</span>
+            <p className="text-slate-500 dark:text-slate-400 text-[11px]">
               No private API keys, service credentials, or passwords embedded in client bundles. LLM keys handled via environment variables.
             </p>
           </div>
-          <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
-            <span className="text-emerald-400 font-bold block mb-1">✔ External Repos Intact</span>
-            <p className="text-slate-400 text-[11px]">
+          <div className="p-3 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800">
+            <span className="text-emerald-600 dark:text-emerald-400 font-bold block mb-1">✔ External Repos Intact</span>
+            <p className="text-slate-500 dark:text-slate-400 text-[11px]">
               All research directories on D:\ held strictly read-only. Zero non-portfolio files modified or deleted.
             </p>
           </div>

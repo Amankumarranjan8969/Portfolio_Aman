@@ -1,15 +1,10 @@
 import React from 'react';
 import { Card } from '../../components/ui/Card';
-import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
 import { GithubIcon } from '../../components/ui/BrandIcons';
 import {
-  Star,
-  GitFork,
   ExternalLink,
   FolderGit2,
-  CheckCircle2,
-  Terminal,
   Bookmark,
   Code
 } from 'lucide-react';
@@ -25,7 +20,6 @@ interface RepoItem {
 }
 
 export const GithubView: React.FC = () => {
-  // All 14 public repositories confirmed via GitHub REST API inspection
   const publicRepositories: RepoItem[] = [
     {
       name: "Groundwater-RAG-forecast",
@@ -149,10 +143,10 @@ export const GithubView: React.FC = () => {
 
   const getLanguageColor = (lang: string) => {
     switch (lang.toLowerCase()) {
-      case 'python': return 'bg-blue-400';
-      case 'jupyter notebook': return 'bg-amber-400';
-      case 'typescript': return 'bg-cyan-400';
-      case 'javascript': return 'bg-yellow-400';
+      case 'python': return 'bg-blue-500';
+      case 'jupyter notebook': return 'bg-amber-500';
+      case 'typescript': return 'bg-cyan-500';
+      case 'javascript': return 'bg-yellow-500';
       case 'html': return 'bg-orange-500';
       default: return 'bg-slate-400';
     }
@@ -162,32 +156,39 @@ export const GithubView: React.FC = () => {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-1">
+        <div className="flex items-center gap-2 text-xs font-mono text-blue-600 dark:text-cyan-400 uppercase tracking-wider mb-1">
           <GithubIcon className="w-4 h-4" />
-          <span>Open-Source Development & Version Control</span>
+          <span>Open-Source Repositories & Engineering Activity</span>
         </div>
-        <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
-          GitHub Repositories & Engineering Activity
+        <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+          GitHub Repositories & Activity
         </h1>
-        <p className="text-sm text-slate-400 font-mono mt-1 max-w-3xl">
-          Audited directly from <a href="https://github.com/Amankumarranjan8969" target="_blank" rel="noopener noreferrer" className="text-cyan-400 underline">github.com/Amankumarranjan8969</a>. All 14 public repositories inspected via GitHub REST API.
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1 max-w-3xl">
+          Audited directly from <a href="https://github.com/Amankumarranjan8969" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-cyan-400 underline">github.com/Amankumarranjan8969</a>. All 14 public repositories confirmed via GitHub REST API.
         </p>
       </div>
 
       {/* GitHub Profile Card */}
-      <Card className="bg-gradient-to-r from-slate-900 to-[#0e1628] border-slate-800">
+      <Card className="bg-slate-50/70 dark:bg-slate-900/60 border-slate-200 dark:border-slate-800">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-full bg-slate-800 border-2 border-cyan-500/50 flex items-center justify-center text-white text-xl font-mono font-bold">
-              AK
+            <div className="w-12 h-12 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-200 dark:bg-slate-800">
+              <img
+                src="./assets/profile.jpg"
+                alt="Aman Kumar Ranjan"
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = "https://avatars.githubusercontent.com/u/197645375?v=4";
+                }}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-white flex items-center gap-2">
+              <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <span>Aman kumar ranjan</span>
-                <span className="text-xs font-mono text-cyan-400 font-normal">@Amankumarranjan8969</span>
+                <span className="text-xs font-mono text-blue-600 dark:text-cyan-400 font-normal">@Amankumarranjan8969</span>
               </h2>
-              <p className="text-xs text-slate-400 font-mono mt-0.5">
-                B.Tech CSE (Data Science) • 14 Public Repositories • Account Active since Feb 2025
+              <p className="text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">
+                B.Tech CSE (Data Science) • 14 Public Repositories • Active since Feb 2025
               </p>
             </div>
           </div>
@@ -206,31 +207,31 @@ export const GithubView: React.FC = () => {
 
       {/* Recommended Pinned Repositories */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono mb-3 flex items-center gap-2">
-          <Bookmark className="w-4 h-4 text-cyan-400" />
-          Flagship Pinned Repositories (Recommended for Profile)
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono mb-3 flex items-center gap-2">
+          <Bookmark className="w-4 h-4 text-blue-600 dark:text-cyan-400" />
+          Flagship Pinned Repositories
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {publicRepositories.filter((r) => r.pinned).map((repo) => (
-            <Card key={repo.name} className="flex flex-col justify-between hover:border-slate-700">
+            <Card key={repo.name} className="flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700">
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-cyan-400 font-semibold truncate">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-blue-700 dark:text-cyan-400 font-semibold truncate">
                     <FolderGit2 className="w-3.5 h-3.5 flex-shrink-0" />
                     <span className="truncate">{repo.name}</span>
                   </div>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-950 text-blue-300 border border-blue-800/60 font-mono">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800/60 font-mono">
                     Public
                   </span>
                 </div>
 
-                <p className="text-xs text-slate-300 mt-2 line-clamp-3 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 line-clamp-3 leading-relaxed">
                   {repo.description}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
                 <div className="flex items-center gap-2">
                   <span className={`w-2 h-2 rounded-full ${getLanguageColor(repo.language)}`} />
                   <span>{repo.language}</span>
@@ -240,7 +241,7 @@ export const GithubView: React.FC = () => {
                   href={repo.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1"
+                  className="text-blue-600 dark:text-cyan-400 hover:underline flex items-center gap-1"
                 >
                   <span>View</span>
                   <ExternalLink className="w-3 h-3" />
@@ -253,50 +254,50 @@ export const GithubView: React.FC = () => {
 
       {/* Complete Public Repositories Table */}
       <div>
-        <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400 font-mono mb-3 flex items-center gap-2">
-          <Code className="w-4 h-4 text-purple-400" />
-          Complete Public Repository Inventory (14 Repositories)
+        <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 font-mono mb-3 flex items-center gap-2">
+          <Code className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+          Complete Repository Catalog (14 Repositories)
         </h3>
 
-        <div className="overflow-x-auto rounded-xl border border-slate-800">
+        <div className="overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800">
           <table className="w-full text-left text-xs font-mono">
-            <thead className="bg-slate-950 text-slate-400 border-b border-slate-800">
+            <thead className="bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
               <tr>
-                <th className="p-3">Repository Name</th>
-                <th className="p-3">Primary Language</th>
-                <th className="p-3">Description</th>
-                <th className="p-3 text-right">Action</th>
+                <th className="p-2.5">Repository Name</th>
+                <th className="p-2.5">Language</th>
+                <th className="p-2.5">Description</th>
+                <th className="p-2.5 text-right">Action</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-800/60 bg-slate-900/40">
+            <tbody className="divide-y divide-slate-100 dark:divide-slate-800/60 bg-white dark:bg-slate-900/40">
               {publicRepositories.map((repo) => (
-                <tr key={repo.name} className="hover:bg-slate-800/30">
-                  <td className="p-3 font-semibold text-white">
+                <tr key={repo.name} className="hover:bg-slate-50 dark:hover:bg-slate-800/30">
+                  <td className="p-2.5 font-semibold text-slate-900 dark:text-white">
                     <a
                       href={repo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400 hover:underline flex items-center gap-1.5"
+                      className="text-blue-600 dark:text-cyan-400 hover:underline flex items-center gap-1.5"
                     >
                       <FolderGit2 className="w-3.5 h-3.5 text-slate-400 flex-shrink-0" />
                       <span>{repo.name}</span>
                     </a>
                   </td>
-                  <td className="p-3">
+                  <td className="p-2.5">
                     <span className="flex items-center gap-1.5">
                       <span className={`w-2 h-2 rounded-full ${getLanguageColor(repo.language)}`} />
-                      <span className="text-slate-300">{repo.language}</span>
+                      <span className="text-slate-600 dark:text-slate-300">{repo.language}</span>
                     </span>
                   </td>
-                  <td className="p-3 text-slate-300 max-w-md truncate">
+                  <td className="p-2.5 text-slate-600 dark:text-slate-300 max-w-md truncate">
                     {repo.description}
                   </td>
-                  <td className="p-3 text-right">
+                  <td className="p-2.5 text-right">
                     <a
                       href={repo.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-cyan-400 hover:text-cyan-300 hover:underline"
+                      className="text-blue-600 dark:text-cyan-400 hover:underline"
                     >
                       GitHub &rarr;
                     </a>

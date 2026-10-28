@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  User,
   LayoutDashboard,
   FolderGit2,
   Cpu,
@@ -16,6 +17,7 @@ import {
 import { GithubIcon } from '../ui/BrandIcons';
 
 export type TabKey =
+  | 'profile'
   | 'overview'
   | 'projects'
   | 'ai-ml'
@@ -52,18 +54,19 @@ export const Sidebar: React.FC<SidebarProps> = ({
     icon: React.ReactNode;
     badge?: number | string;
   }[] = [
+    { key: 'profile', label: 'Profile & Brand Logo', icon: <User className="w-4 h-4" />, badge: "Photo" },
     { key: 'overview', label: 'Overview', icon: <LayoutDashboard className="w-4 h-4" /> },
     { key: 'projects', label: 'Projects', icon: <FolderGit2 className="w-4 h-4" />, badge: projectCount },
-    { key: 'ai-ml', label: 'AI/ML & Research', icon: <Cpu className="w-4 h-4" /> },
+    { key: 'ai-ml', label: 'Research & AI', icon: <Cpu className="w-4 h-4" /> },
     { key: 'engineering-iot', label: 'Engineering & IoT', icon: <Radio className="w-4 h-4" /> },
     { key: 'software', label: 'Software Apps', icon: <AppWindow className="w-4 h-4" /> },
     { key: 'certificates', label: 'Certificates & Awards', icon: <Award className="w-4 h-4" />, badge: credentialCount },
-    { key: 'experience', label: 'Experience & Internships', icon: <Briefcase className="w-4 h-4" /> },
-    { key: 'github', label: 'GitHub & Activity', icon: <GithubIcon className="w-4 h-4" />, badge: "14 repos" },
+    { key: 'experience', label: 'Experience', icon: <Briefcase className="w-4 h-4" /> },
+    { key: 'github', label: 'GitHub Activity', icon: <GithubIcon className="w-4 h-4" />, badge: "14" },
     { key: 'publications', label: 'Publications & Reports', icon: <FileText className="w-4 h-4" /> },
-    { key: 'resume', label: 'Resume', icon: <FileCheck2 className="w-4 h-4" /> },
+    { key: 'resume', label: 'Curriculum Vitae', icon: <FileCheck2 className="w-4 h-4" /> },
     { key: 'contact', label: 'Contact', icon: <Mail className="w-4 h-4" /> },
-    { key: 'evidence', label: 'Evidence & Verification', icon: <ShieldCheck className="w-4 h-4" />, badge: "Audit" },
+    { key: 'evidence', label: 'Evidence & Audit', icon: <ShieldCheck className="w-4 h-4" /> },
   ];
 
   const handleNavClick = (key: TabKey) => {
@@ -72,25 +75,39 @@ export const Sidebar: React.FC<SidebarProps> = ({
   };
 
   const content = (
-    <div className="flex flex-col h-full bg-[#0D121F] border-r border-slate-800/80 text-slate-300 w-64 select-none">
-      {/* Brand Monogram */}
-      <div className="p-5 border-b border-slate-800/80 flex items-center justify-between">
+    <div className="flex flex-col h-full bg-slate-50/80 dark:bg-[#0D121F] border-r border-slate-200 dark:border-slate-800/80 text-slate-700 dark:text-slate-300 w-64 select-none transition-colors">
+      {/* Brand Monogram & Photo Avatar */}
+      <div
+        onClick={() => handleNavClick('profile')}
+        className="p-4 border-b border-slate-200 dark:border-slate-800/80 flex items-center justify-between cursor-pointer hover:bg-slate-100/60 dark:hover:bg-slate-800/40 transition-colors"
+      >
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center font-mono font-bold text-white shadow-md shadow-cyan-500/20">
-            AK
+          <div className="relative w-9 h-9 rounded-full overflow-hidden border border-slate-200 dark:border-cyan-500/50 shadow-sm flex-shrink-0 bg-slate-200 dark:bg-slate-800">
+            <img
+              src="./assets/profile.jpg"
+              alt="Aman Kumar Ranjan"
+              onError={(e) => {
+                // Fallback to GitHub avatar if local asset not rendered
+                (e.currentTarget as HTMLImageElement).src = "https://avatars.githubusercontent.com/u/197645375?v=4";
+              }}
+              className="w-full h-full object-cover object-top"
+            />
           </div>
-          <div>
-            <h1 className="text-sm font-semibold text-white tracking-tight leading-tight">
+          <div className="min-w-0">
+            <h1 className="text-xs font-bold text-slate-900 dark:text-white tracking-tight truncate leading-tight">
               Aman Kumar Ranjan
             </h1>
-            <p className="text-xs text-cyan-400 font-mono mt-0.5">
-              AI/ML & Systems Eng.
+            <p className="text-[10px] text-blue-600 dark:text-cyan-400 font-mono truncate mt-0.5">
+              Haridwar University
             </p>
           </div>
         </div>
         <button
-          onClick={onCloseMobile}
-          className="md:hidden p-1 text-slate-400 hover:text-white"
+          onClick={(e) => {
+            e.stopPropagation();
+            onCloseMobile();
+          }}
+          className="md:hidden p-1 text-slate-400 hover:text-slate-600 dark:hover:text-white"
           aria-label="Close navigation"
         >
           <X className="w-5 h-5" />
@@ -99,8 +116,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Navigation Links */}
       <nav className="flex-1 p-3 space-y-1 overflow-y-auto" aria-label="Main Navigation">
-        <div className="px-3 py-1.5 text-[10px] font-semibold text-slate-500 uppercase tracking-wider font-mono">
-          Navigation
+        <div className="px-3 py-1 text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-mono">
+          Sections
         </div>
         {navItems.map((item) => {
           const isActive = activeTab === item.key;
@@ -110,12 +127,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
               onClick={() => handleNavClick(item.key)}
               className={`w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                 isActive
-                  ? 'bg-blue-600/15 text-cyan-300 border border-blue-500/30 font-semibold'
-                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+                  ? 'bg-blue-50 text-blue-700 border border-blue-200 font-semibold dark:bg-blue-600/15 dark:text-cyan-300 dark:border-blue-500/30'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100/80 dark:hover:bg-slate-800/60'
               }`}
             >
-              <div className="flex items-center gap-3">
-                <span className={isActive ? 'text-cyan-400' : 'text-slate-400'}>
+              <div className="flex items-center gap-2.5">
+                <span className={isActive ? 'text-blue-600 dark:text-cyan-400' : 'text-slate-400 dark:text-slate-500'}>
                   {item.icon}
                 </span>
                 <span>{item.label}</span>
@@ -124,8 +141,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <span
                   className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
                     isActive
-                      ? 'bg-cyan-500/20 text-cyan-200'
-                      : 'bg-slate-800 text-slate-400'
+                      ? 'bg-blue-100 text-blue-800 dark:bg-cyan-500/20 dark:text-cyan-200'
+                      : 'bg-slate-200/70 text-slate-600 dark:bg-slate-800 dark:text-slate-400'
                   }`}
                 >
                   {item.badge}
@@ -136,14 +153,14 @@ export const Sidebar: React.FC<SidebarProps> = ({
         })}
       </nav>
 
-      {/* Environment Footer Badge */}
-      <div className="p-3.5 border-t border-slate-800/80 bg-slate-900/40 text-xs">
-        <div className="flex items-center gap-2 text-slate-400">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="font-mono text-[11px] text-slate-300">Haridwar University</span>
+      {/* Footer Info */}
+      <div className="p-3 border-t border-slate-200 dark:border-slate-800/80 bg-white/50 dark:bg-slate-900/40 text-[11px] font-mono">
+        <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400">
+          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+          <span>B.Tech CSE (Data Science)</span>
         </div>
-        <p className="text-[10px] text-slate-400 mt-1 font-mono">
-          Enrolment: 230103001 | NIH & CBRI
+        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">
+          ID: 230103001 • NIH Roorkee
         </p>
       </div>
     </div>
@@ -160,7 +177,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       {isOpenMobile && (
         <div className="fixed inset-0 z-50 md:hidden flex">
           <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm transition-opacity"
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity"
             onClick={onCloseMobile}
           />
           <div className="relative z-10 w-64 shadow-2xl animate-in slide-in-from-left duration-200">

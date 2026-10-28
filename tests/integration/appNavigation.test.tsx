@@ -17,8 +17,8 @@ describe('App Layout & Navigation Integration', () => {
     render(<App />);
 
     expect(screen.getAllByText('Aman Kumar Ranjan').length).toBeGreaterThan(0);
-    expect(screen.getByText('Verified Portfolio Metrics (Data-Derived)')).toBeInTheDocument();
-    expect(screen.getByText('Total Cataloged')).toBeInTheDocument();
+    expect(screen.getByText('Verified Portfolio Metrics')).toBeInTheDocument();
+    expect(screen.getByText('Total Projects')).toBeInTheDocument();
   });
 
   it('should switch views when navigation tab is clicked', () => {
@@ -28,14 +28,43 @@ describe('App Layout & Navigation Integration', () => {
     const projectsBtn = screen.getByRole('button', { name: /Projects 15/i });
     fireEvent.click(projectsBtn);
 
-    expect(screen.getByText('Technical Project Catalog & Evidence Register')).toBeInTheDocument();
+    expect(screen.getByText('Technical Project Catalog')).toBeInTheDocument();
 
-    // Click on "Evidence & Verification" in sidebar
-    const evidenceBtn = screen.getByRole('button', { name: /Evidence & Verification Audit/i });
+    // Click on "Evidence & Audit" in sidebar
+    const evidenceBtn = screen.getByRole('button', { name: /Evidence & Audit/i });
     fireEvent.click(evidenceBtn);
 
     expect(screen.getByText('Evidence Verification Center')).toBeInTheDocument();
     expect(screen.getByText('Zero-Fabrication Engineering Standard')).toBeInTheDocument();
+  });
+
+  it('should navigate to the dedicated Profile & Logo page and display photo & brand details', () => {
+    render(<App />);
+
+    // Click on "Profile & Brand Logo" in sidebar
+    const profileBtn = screen.getByRole('button', { name: /Profile & Brand Logo/i });
+    fireEvent.click(profileBtn);
+
+    expect(screen.getByText('Profile, Identity & Personal Brand')).toBeInTheDocument();
+    expect(screen.getByText('AKR Monogram (Aman Kumar Ranjan)')).toBeInTheDocument();
+    expect(screen.getByText('230103001')).toBeInTheDocument();
+    expect(screen.getByText('Verified Candidate Photo')).toBeInTheDocument();
+  });
+
+  it('should toggle Day and Night theme mode', () => {
+    render(<App />);
+
+    // Find the theme toggle button in the header
+    const toggleBtn = screen.getByRole('button', { name: /toggle theme mode/i });
+    expect(toggleBtn).toBeInTheDocument();
+
+    // Default is light (Day Mode). Clicking should toggle to Night mode
+    fireEvent.click(toggleBtn);
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+
+    // Clicking again should toggle back to Day mode
+    fireEvent.click(toggleBtn);
+    expect(document.documentElement.classList.contains('dark')).toBe(false);
   });
 
   it('should open and close project detail modal when project card is clicked', () => {

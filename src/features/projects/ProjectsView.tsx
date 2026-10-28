@@ -6,15 +6,8 @@ import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
 import {
   FolderGit2,
-  ExternalLink,
-  Filter,
-  ArrowUpDown,
-  Sparkles,
-  Building2,
-  CheckCircle2,
   AlertCircle
 } from 'lucide-react';
-import { GithubIcon } from '../../components/ui/BrandIcons';
 
 interface ProjectsViewProps {
   projects: Project[];
@@ -49,15 +42,12 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
   const filteredProjects = useMemo(() => {
     return projects
       .filter((project) => {
-        // Category filter
         if (selectedCategory !== 'all' && project.category !== selectedCategory) {
           return false;
         }
-        // Status filter
         if (selectedStatus !== 'all' && project.status !== selectedStatus) {
           return false;
         }
-        // Search query
         if (searchQuery.trim()) {
           const q = searchQuery.toLowerCase();
           const matchTitle = project.title.toLowerCase().includes(q);
@@ -89,17 +79,17 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
     <div className="space-y-6">
       {/* Page Header */}
       <div>
-        <h1 className="text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-          <FolderGit2 className="w-6 h-6 text-cyan-400" />
-          Technical Project Catalog & Evidence Register
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white flex items-center gap-2">
+          <FolderGit2 className="w-5 h-5 text-blue-600 dark:text-cyan-400" />
+          Technical Project Catalog
         </h1>
-        <p className="text-sm text-slate-400 font-mono mt-1">
-          Explore {projects.length} audited systems across AI/ML, environmental hydrology, IoT, and full-stack software.
+        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-mono mt-1">
+          Explore {projects.length} audited systems across AI/ML, environmental hydrology, IoT, and software engineering.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-4 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+      <div className="p-4 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-200/90 dark:border-slate-800 space-y-3">
         <div className="flex flex-col sm:flex-row items-center gap-3">
           <div className="flex-1 w-full">
             <SearchInput
@@ -113,7 +103,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
             <select
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value as any)}
-              className="bg-slate-900 border border-slate-700/80 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-cyan-500 w-full sm:w-auto"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 rounded-lg px-3 py-2 text-xs font-mono text-slate-700 dark:text-slate-200 focus:outline-none focus:border-blue-500 dark:focus:border-cyan-500 w-full sm:w-auto shadow-sm"
             >
               {statuses.map((s) => (
                 <option key={s.key} value={s.key}>{s.label}</option>
@@ -123,18 +113,17 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className="bg-slate-900 border border-slate-700/80 rounded-lg px-3 py-2 text-xs font-mono text-slate-200 focus:outline-none focus:border-cyan-500 w-full sm:w-auto"
+              className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700/80 rounded-lg px-3 py-2 text-xs font-mono text-slate-700 dark:text-slate-200 focus:outline-none focus:border-blue-500 dark:focus:border-cyan-500 w-full sm:w-auto shadow-sm"
             >
-              <option value="featured">Sort: Featured First</option>
-              <option value="title">Sort: Alphabetical (A-Z)</option>
-              <option value="status">Sort: Evidence Status</option>
+              <option value="featured">Featured First</option>
+              <option value="title">Alphabetical (A-Z)</option>
+              <option value="status">Evidence Status</option>
             </select>
           </div>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 text-xs">
-          <span className="text-slate-400 font-mono text-[11px] mr-1 hidden sm:inline">Category:</span>
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
           {categories.map((cat) => {
             const isSelected = selectedCategory === cat.key;
             return (
@@ -144,7 +133,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
                 className={`px-3 py-1.5 rounded-lg whitespace-nowrap font-medium transition-colors ${
                   isSelected
                     ? 'bg-blue-600 text-white font-semibold shadow-sm'
-                    : 'bg-slate-800/80 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
+                    : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 border border-slate-200 dark:border-slate-700/80'
                 }`}
               >
                 {cat.label}
@@ -155,9 +144,9 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
       </div>
 
       {/* Results Meta Info */}
-      <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+      <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 px-1">
         <span>
-          Showing <strong className="text-cyan-400">{filteredProjects.length}</strong> of {projects.length} systems
+          Showing <strong className="text-blue-600 dark:text-cyan-400">{filteredProjects.length}</strong> of {projects.length} systems
         </span>
         {(searchQuery || selectedCategory !== 'all' || selectedStatus !== 'all') && (
           <button
@@ -166,7 +155,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
               setSelectedCategory('all');
               setSelectedStatus('all');
             }}
-            className="text-cyan-400 hover:underline"
+            className="text-blue-600 dark:text-cyan-400 hover:underline"
           >
             Reset Filters
           </button>
@@ -175,11 +164,11 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
 
       {/* Project Cards Grid */}
       {filteredProjects.length === 0 ? (
-        <div className="p-12 text-center rounded-2xl bg-slate-900/40 border border-slate-800 space-y-3">
-          <AlertCircle className="w-10 h-10 text-slate-500 mx-auto" />
-          <h3 className="text-base font-bold text-white">No Matching Projects Found</h3>
-          <p className="text-xs text-slate-400 max-w-md mx-auto">
-            No projects matched your search criteria "{searchQuery}". Try searching for a broader term or resetting active filters.
+        <div className="p-12 text-center rounded-2xl bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 space-y-3">
+          <AlertCircle className="w-8 h-8 text-slate-400 mx-auto" />
+          <h3 className="text-base font-bold text-slate-900 dark:text-white">No Matching Projects Found</h3>
+          <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+            No projects matched your search criteria "{searchQuery}". Try a broader term.
           </p>
           <Button
             variant="outline"
@@ -190,7 +179,7 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
               setSelectedStatus('all');
             }}
           >
-            Clear Search & Filters
+            Clear Filters
           </Button>
         </div>
       ) : (
@@ -203,60 +192,56 @@ export const ProjectsView: React.FC<ProjectsViewProps> = ({
               className="flex flex-col justify-between group h-full"
             >
               <div>
-                {/* Header row: badge + category */}
                 <div className="flex items-center justify-between gap-2 mb-2.5">
                   <Badge status={project.status} size="sm" />
-                  <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider">
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
                     {project.category}
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors leading-snug">
                   {project.title}
                 </h3>
 
-                <p className="text-xs text-cyan-400/80 font-mono mt-1 line-clamp-1">
+                <p className="text-xs text-blue-600 dark:text-cyan-400 font-mono mt-1 line-clamp-1">
                   {project.tagline}
                 </p>
 
-                <p className="text-xs text-slate-300 mt-2.5 line-clamp-3 leading-relaxed">
+                <p className="text-xs text-slate-600 dark:text-slate-300 mt-2.5 line-clamp-3 leading-relaxed">
                   {project.shortSummary}
                 </p>
 
-                {/* Key metric pill if exists */}
                 {project.evaluation.metrics.length > 0 && (
-                  <div className="mt-3 p-2 rounded bg-slate-950/60 border border-slate-800/80 flex items-center justify-between text-xs font-mono">
-                    <span className="text-slate-400 truncate text-[11px]">{project.evaluation.metrics[0].name}</span>
-                    <span className="text-emerald-400 font-bold ml-2">
+                  <div className="mt-3 p-2 rounded bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono">
+                    <span className="text-slate-500 dark:text-slate-400 truncate text-[11px]">{project.evaluation.metrics[0].name}</span>
+                    <span className="text-emerald-600 dark:text-emerald-400 font-bold ml-2">
                       {project.evaluation.metrics[0].value}
                     </span>
                   </div>
                 )}
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-1.5 mt-3">
+                <div className="flex flex-wrap gap-1 mt-3">
                   {project.technologies.slice(0, 3).map((t) => (
                     <span
                       key={t}
-                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-800/80 text-slate-300 border border-slate-700/60"
+                      className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60"
                     >
                       {t}
                     </span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-800 text-slate-400">
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-slate-800 text-slate-500">
                       +{project.technologies.length - 3}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Footer */}
-              <div className="mt-5 pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+              <div className="mt-5 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400">
                 <span className="truncate max-w-[160px] text-[11px]">
                   {project.organization || 'Independent'}
                 </span>
-                <span className="text-cyan-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
+                <span className="text-blue-600 dark:text-cyan-400 group-hover:translate-x-1 transition-transform flex items-center gap-1 font-semibold">
                   Inspect &rarr;
                 </span>
               </div>

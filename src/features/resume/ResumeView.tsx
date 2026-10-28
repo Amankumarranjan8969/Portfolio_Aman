@@ -73,14 +73,14 @@ KEY CERTIFICATIONS & AWARDS
       {/* Header Actions */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-1">
+          <div className="flex items-center gap-2 text-xs font-mono text-blue-600 dark:text-cyan-400 uppercase tracking-wider mb-1">
             <FileText className="w-4 h-4" />
             <span>Verified Curriculum Vitae</span>
           </div>
-          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+          <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             Curriculum Vitae
           </h1>
-          <p className="text-xs font-mono text-slate-400 mt-1">
+          <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">
             Audited against verified institutional dissertations, NPTEL certificates, and GitHub repositories.
           </p>
         </div>
@@ -90,7 +90,7 @@ KEY CERTIFICATIONS & AWARDS
             variant="secondary"
             size="sm"
             onClick={handleCopyText}
-            icon={copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            icon={copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
           >
             {copied ? 'Copied to Clipboard' : 'Copy Plaintext CV'}
           </Button>
@@ -107,33 +107,33 @@ KEY CERTIFICATIONS & AWARDS
       </div>
 
       {/* Printable Sheet Card */}
-      <Card className="p-8 sm:p-12 bg-slate-950 border-slate-800 shadow-2xl max-w-4xl mx-auto font-sans text-slate-200 space-y-8 print:p-0 print:border-none print:shadow-none">
+      <Card className="p-8 sm:p-12 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-2xl max-w-4xl mx-auto font-sans text-slate-800 dark:text-slate-200 space-y-8 print:p-0 print:border-none print:shadow-none">
         {/* Header */}
-        <div className="border-b border-slate-800 pb-6 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div className="border-b border-slate-200 dark:border-slate-800 pb-6 text-center sm:text-left flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
               {candidateProfile.name}
             </h2>
-            <p className="text-sm font-semibold text-cyan-400 font-mono mt-1">
+            <p className="text-sm font-semibold text-blue-600 dark:text-cyan-400 font-mono mt-1">
               B.Tech in Computer Science & Engineering (Data Science)
             </p>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               Haridwar University, Roorkee • Enrolment No: 230103001
             </p>
           </div>
 
-          <div className="text-xs font-mono text-slate-400 space-y-1 sm:text-right">
+          <div className="text-xs font-mono text-slate-600 dark:text-slate-400 space-y-1 sm:text-right">
             <p className="flex items-center sm:justify-end gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-cyan-400" />
+              <Mail className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
               <span>{candidateProfile.contact.email}</span>
             </p>
             <p className="flex items-center sm:justify-end gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-cyan-400" />
+              <MapPin className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
               <span>{candidateProfile.contact.location}</span>
             </p>
             <p className="flex items-center sm:justify-end gap-1.5">
-              <GithubIcon className="w-3.5 h-3.5 text-cyan-400" />
-              <a href={candidateProfile.contact.github} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline">
+              <GithubIcon className="w-3.5 h-3.5 text-blue-600 dark:text-cyan-400" />
+              <a href={candidateProfile.contact.github} target="_blank" rel="noreferrer" className="text-blue-600 dark:text-cyan-400 hover:underline">
                 github.com/{candidateProfile.contact.githubUsername}
               </a>
             </p>
@@ -142,40 +142,40 @@ KEY CERTIFICATIONS & AWARDS
 
         {/* Professional Summary */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono border-b border-slate-800 pb-1 mb-2">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 font-mono border-b border-slate-200 dark:border-slate-800 pb-1 mb-2">
             Professional Summary
           </h3>
-          <p className="text-xs leading-relaxed text-slate-300">
+          <p className="text-xs leading-relaxed text-slate-700 dark:text-slate-300">
             {candidateProfile.bio}
           </p>
         </div>
 
         {/* Education */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono border-b border-slate-800 pb-1 mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 font-mono border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">
             Education
           </h3>
           <div className="space-y-3 text-xs">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
               <div>
-                <strong className="text-white text-sm">Haridwar University</strong>
-                <p className="text-slate-300">Bachelor of Technology (B.Tech) — Computer Science & Engineering (Data Science)</p>
-                <p className="text-slate-400 font-mono text-[11px]">Enrolment No: 230103001 • Roorkee, Uttarakhand</p>
+                <strong className="text-slate-900 dark:text-white text-sm">Haridwar University</strong>
+                <p className="text-slate-700 dark:text-slate-300">Bachelor of Technology (B.Tech) — Computer Science & Engineering (Data Science)</p>
+                <p className="text-slate-500 dark:text-slate-400 font-mono text-[11px]">Enrolment No: 230103001 • Roorkee, Uttarakhand</p>
               </div>
               <div className="text-left sm:text-right font-mono">
-                <span className="text-emerald-400 font-bold">CGPA: 6.96 / 10.0</span>
-                <span className="text-slate-500 block text-[11px]">Sep 2023 – Present</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">CGPA: 6.96 / 10.0</span>
+                <span className="text-slate-400 dark:text-slate-500 block text-[11px]">Sep 2023 – Present</span>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-2 border-t border-slate-900">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pt-2 border-t border-slate-100 dark:border-slate-900">
               <div>
-                <strong className="text-white">Kendriya Vidyalaya Ramgarh Cantt</strong>
-                <p className="text-slate-300">Higher Secondary Examination (Class XII, CBSE Board)</p>
+                <strong className="text-slate-900 dark:text-white">Kendriya Vidyalaya Ramgarh Cantt</strong>
+                <p className="text-slate-700 dark:text-slate-300">Higher Secondary Examination (Class XII, CBSE Board)</p>
               </div>
               <div className="text-left sm:text-right font-mono">
-                <span className="text-slate-300">77.0%</span>
-                <span className="text-slate-500 block text-[11px]">2022</span>
+                <span className="text-slate-700 dark:text-slate-300">77.0%</span>
+                <span className="text-slate-400 dark:text-slate-500 block text-[11px]">2022</span>
               </div>
             </div>
           </div>
@@ -183,7 +183,7 @@ KEY CERTIFICATIONS & AWARDS
 
         {/* Experience */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono border-b border-slate-800 pb-1 mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 font-mono border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">
             Research Fellowships & Industrial Internships
           </h3>
           <div className="space-y-5 text-xs">
@@ -191,12 +191,12 @@ KEY CERTIFICATIONS & AWARDS
               <div key={exp.id} className="space-y-1.5">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
                   <div>
-                    <strong className="text-white text-sm">{exp.role}</strong>
-                    <span className="text-slate-400 ml-2 font-mono">• {exp.organization}</span>
+                    <strong className="text-slate-900 dark:text-white text-sm">{exp.role}</strong>
+                    <span className="text-slate-500 dark:text-slate-400 ml-2 font-mono">• {exp.organization}</span>
                   </div>
-                  <span className="text-slate-400 font-mono text-[11px]">{exp.period}</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-mono text-[11px]">{exp.period}</span>
                 </div>
-                <ul className="list-disc list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
+                <ul className="list-disc list-inside space-y-1 text-slate-700 dark:text-slate-300 text-[11px] leading-relaxed">
                   {exp.contributions.map((c, i) => (
                     <li key={i}>{c}</li>
                   ))}
@@ -208,17 +208,17 @@ KEY CERTIFICATIONS & AWARDS
 
         {/* Verified Certifications & Honors */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono border-b border-slate-800 pb-1 mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 font-mono border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">
             Verified Certifications & Competitive Honors
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono">
             {credentialsData.filter((c) => c.status === 'Verified').map((c) => (
-              <div key={c.id} className="p-2.5 rounded bg-slate-900/50 border border-slate-800/80">
-                <span className="text-white font-bold block">{c.title}</span>
-                <span className="text-cyan-400 text-[11px] block">{c.issuingOrg}</span>
-                <div className="mt-1 flex items-center justify-between text-[10px] text-slate-400">
+              <div key={c.id} className="p-2.5 rounded bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800/80">
+                <span className="text-slate-900 dark:text-white font-bold block">{c.title}</span>
+                <span className="text-blue-600 dark:text-cyan-400 text-[11px] block">{c.issuingOrg}</span>
+                <div className="mt-1 flex items-center justify-between text-[10px] text-slate-500 dark:text-slate-400">
                   <span>{c.score || c.issueDate}</span>
-                  {c.credentialId && <code className="text-emerald-400">{c.credentialId}</code>}
+                  {c.credentialId && <code className="text-emerald-600 dark:text-emerald-400">{c.credentialId}</code>}
                 </div>
               </div>
             ))}
@@ -227,14 +227,14 @@ KEY CERTIFICATIONS & AWARDS
 
         {/* Technical Skills */}
         <div>
-          <h3 className="text-xs font-bold uppercase tracking-wider text-cyan-400 font-mono border-b border-slate-800 pb-1 mb-3">
+          <h3 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-cyan-400 font-mono border-b border-slate-200 dark:border-slate-800 pb-1 mb-3">
             Technical Proficiencies
           </h3>
           <div className="space-y-2 text-xs">
             {candidateProfile.skillsByCategory.map((cat) => (
               <div key={cat.category} className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                <span className="font-mono text-slate-400 w-44 font-semibold text-[11px]">{cat.category}:</span>
-                <span className="text-slate-300 font-mono text-[11px]">{cat.skills.join(', ')}</span>
+                <span className="font-mono text-slate-500 dark:text-slate-400 w-44 font-semibold text-[11px]">{cat.category}:</span>
+                <span className="text-slate-700 dark:text-slate-300 font-mono text-[11px]">{cat.skills.join(', ')}</span>
               </div>
             ))}
           </div>
