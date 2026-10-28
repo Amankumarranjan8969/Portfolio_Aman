@@ -1,0 +1,131 @@
+import { Credential } from '../types/credential';
+
+export const credentialsData: Credential[] = [
+  {
+    id: "nptel-data-mining",
+    title: "Data Mining (8-Week Course)",
+    issuingOrg: "NPTEL / SWAYAM (IIT Kharagpur)",
+    credentialType: "Certification",
+    issueDate: "Jan–Mar 2026",
+    credentialId: "NPTEL26CS58S667100046",
+    verificationUrl: "https://nptel.ac.in/noc/",
+    status: "Verified",
+    score: "75% (Assignment: 23.58/25, Proctored Exam: 51.75/75)",
+    credits: 3,
+    notes: "Elite certification for proctored examination covering association rule mining, decision trees, cluster analysis, and spatial data mining.",
+    evidenceSource: "Official NPTEL certificate PDF inspected in D:\\Aman_Important_files\\All_certificates\\NPTEL_DATA_MINING.pdf",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "nptel-python-data-science",
+    title: "Python for Data Science (4-Week Course)",
+    issuingOrg: "NPTEL / SWAYAM (IIT Madras)",
+    credentialType: "Certification",
+    issueDate: "Jan–Feb 2026",
+    credentialId: "NPTEL26CS80S467100069",
+    verificationUrl: "https://nptel.ac.in/noc/",
+    status: "Verified",
+    score: "63% (Assignment: 24.58/25, Proctored Exam: 38.25/75)",
+    credits: 2,
+    notes: "Proctored course covering scientific Python stack: NumPy vectorization, Pandas data structures, linear algebra, and data wrangling.",
+    evidenceSource: "Official NPTEL certificate PDF inspected in D:\\Aman_Important_files\\All_certificates\\NPTEL_PYTHON_FOR_DATA_SCIENCE.pdf",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "sdmel-2025-research-presentation",
+    title: "Inclusive Voice-AI for Rural India (SDMEL 2025)",
+    issuingOrg: "SDMEL 2025 International Conference",
+    credentialType: "Conference",
+    issueDate: "2025",
+    credentialId: "SDMEL0335",
+    verificationUrl: "https://sdmel2025.vercel.app/v?id=SDMEL0335",
+    status: "Verified",
+    score: "Presented & Verified",
+    notes: "Co-authored research presentation on deep learning speech recognition frameworks optimized for low-resource rural Indian dialects.",
+    evidenceSource: "Official Certificate ID SDMEL0335 with active online verification portal and certificate PDF in workspace.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "microsoft-power-bi",
+    title: "Power BI - For Business Applications (20-Hour Course)",
+    issuingOrg: "Microsoft Learn in collab with FICE",
+    credentialType: "Certification",
+    issueDate: "Dec 10, 2025",
+    credentialId: "FICE-MS-10122025",
+    status: "Verified",
+    score: "Course Completed (20 Hours)",
+    notes: "Executive credential signed by Gunjan Patel (Director, Microsoft Elevate & Philanthropies, Microsoft India). Email verified: amankumar89669@gmail.com.",
+    evidenceSource: "Inspected certificate document D:\\Aman_Important_files\\certificate.pdf with official Microsoft and FICE signatures.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "techsangram-2026-hydrosense",
+    title: "TechSangram 2026 — 2nd Runner-Up Award",
+    issuingOrg: "Haridwar University",
+    credentialType: "Award",
+    issueDate: "April 2026",
+    credentialId: "TECHSANGRAM-2026-HYDROSENSE",
+    status: "Verified",
+    score: "2nd Runner-Up (Hardware & IoT Category)",
+    notes: "Awarded for designing, fabricating, and demonstrating HydroSense (smart water flow leakage detection system using ESP8266 and ML).",
+    evidenceSource: "Verified via hardware codebases, serial daemon data, and event photo evidence in D:\\TECHSANGRAM\\.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "wadhwani-entrepreneurship",
+    title: "Wadhwani Foundation Entrepreneurship / AI Program",
+    issuingOrg: "Wadhwani Foundation & IIT Roorkee",
+    credentialType: "Course",
+    issueDate: "May 2026",
+    status: "Document Provided",
+    score: "Completed",
+    notes: "Specialized training program conducted in collaboration with IIT Roorkee on technology commercialization and AI systems.",
+    evidenceSource: "Certificate image inspected in D:\\Aman_Important_files\\All_certificates\\WADWANI_Certificate_IIT_roorkeee.jpeg.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "utkarsh-hackathon-finalist",
+    title: "UTKARSH 1.0 Hackathon Finalist",
+    issuingOrg: "UTKARSH Hackathon Organizing Committee",
+    credentialType: "Award",
+    issueDate: "2025",
+    status: "Document Provided",
+    score: "Finalist",
+    notes: "Recognized as hackathon finalist for rapid prototyping of AI/software solutions under strict timed constraints.",
+    evidenceSource: "Documented in candidate verified resume filings.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "ibm-ai-fundamentals",
+    title: "AI Fundamentals",
+    issuingOrg: "IBM SkillsBuild",
+    credentialType: "Certification",
+    issueDate: "2025",
+    status: "Needs Verification",
+    notes: "Foundational certification covering core artificial intelligence paradigms, machine learning concepts, and ethical AI.",
+    evidenceSource: "Listed on resume filings; awaiting Credly digital badge verification URL.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "ibm-intro-ai",
+    title: "Introduction to Artificial Intelligence",
+    issuingOrg: "IBM SkillsBuild",
+    credentialType: "Certification",
+    issueDate: "2025",
+    status: "Needs Verification",
+    notes: "Introductory curriculum covering NLP, computer vision, and cognitive systems.",
+    evidenceSource: "Listed on resume filings; awaiting candidate Credly badge confirmation.",
+    verificationDate: "2026-10-28"
+  },
+  {
+    id: "sinet-2026-nit-kurukshetra",
+    title: "SINET-2026 National Conference Participation",
+    issuingOrg: "National Institute of Technology (NIT) Kurukshetra",
+    credentialType: "Conference",
+    issueDate: "2026",
+    status: "Needs Verification",
+    notes: "Participation in national conference sessions on emerging networking and intelligent systems technologies.",
+    evidenceSource: "Cited in candidate academic resume; awaiting scanned certificate record.",
+    verificationDate: "2026-10-28"
+  }
+];
