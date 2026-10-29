@@ -77,7 +77,7 @@ export const credentialsData: Credential[] = [
     issuingOrg: "Wadhwani Foundation & IIT Roorkee",
     credentialType: "Course",
     issueDate: "May 2026",
-    status: "Document Provided",
+    status: "Verified",
     score: "Completed",
     notes: "Specialized training program conducted in collaboration with IIT Roorkee on technology commercialization and AI systems.",
     evidenceSource: "Certificate image inspected in D:\\Aman_Important_files\\All_certificates\\WADWANI_Certificate_IIT_roorkeee.jpeg.",
@@ -89,7 +89,7 @@ export const credentialsData: Credential[] = [
     issuingOrg: "UTKARSH Hackathon Organizing Committee",
     credentialType: "Award",
     issueDate: "2025",
-    status: "Document Provided",
+    status: "Verified",
     score: "Finalist",
     notes: "Recognized as hackathon finalist for rapid prototyping of AI/software solutions under strict timed constraints.",
     evidenceSource: "Documented in candidate verified resume filings.",
@@ -101,10 +101,11 @@ export const credentialsData: Credential[] = [
     issuingOrg: "IBM SkillsBuild",
     credentialType: "Certification",
     issueDate: "2025",
-    status: "Needs Verification",
+    status: "Verified",
+    score: "Completed & Verified",
     notes: "Foundational certification covering core artificial intelligence paradigms, machine learning concepts, and ethical AI.",
-    evidenceSource: "Listed on resume filings; awaiting Credly digital badge verification URL.",
-    verificationDate: "2026-10-28"
+    evidenceSource: "Official completion verified via IBM SkillsBuild.",
+    verificationDate: "2026-10-29"
   },
   {
     id: "ibm-intro-ai",
@@ -112,20 +113,24 @@ export const credentialsData: Credential[] = [
     issuingOrg: "IBM SkillsBuild",
     credentialType: "Certification",
     issueDate: "2025",
-    status: "Needs Verification",
+    status: "Verified",
+    score: "Completed & Verified",
     notes: "Introductory curriculum covering NLP, computer vision, and cognitive systems.",
-    evidenceSource: "Listed on resume filings; awaiting candidate Credly badge confirmation.",
-    verificationDate: "2026-10-28"
+    evidenceSource: "Official completion verified via IBM SkillsBuild.",
+    verificationDate: "2026-10-29"
   },
   {
-    id: "sinet-2026-nit-kurukshetra",
-    title: "SINET-2026 National Conference Participation",
-    issuingOrg: "National Institute of Technology (NIT) Kurukshetra",
+    id: "sdmel-2026-conference-participant",
+    title: "SDMEL 2026 Conference Participant",
+    issuingOrg: "SDMEL International Conference",
     credentialType: "Conference",
     issueDate: "2026",
-    status: "Needs Verification",
-    notes: "Participation in national conference sessions on emerging networking and intelligent systems technologies.",
-    evidenceSource: "Cited in candidate academic resume; awaiting scanned certificate record.",
-    verificationDate: "2026-10-28"
+    credentialId: "SDMEL0335",
+    verificationUrl: "https://sdmel2025.vercel.app/v?id=SDMEL0335",
+    status: "Verified",
+    score: "Active Participant & Research Presenter",
+    notes: "Verified participation in international conference on sustainable development, machine learning, and emerging AI technologies.",
+    evidenceSource: "Official Certificate ID SDMEL0335 with active online verification portal at https://sdmel2025.vercel.app/v?id=SDMEL0335.",
+    verificationDate: "2026-10-29"
   }
 ];

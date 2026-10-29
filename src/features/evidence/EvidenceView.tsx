@@ -50,10 +50,26 @@ export const EvidenceView: React.FC = () => {
     {
       category: "International Conference Presentation",
       title: "Inclusive Voice-AI for Rural India: A Deep Learning Framework",
-      institution: "SDMEL 2025 International Conference",
+      institution: "SDMEL International Conference",
       status: "Verified",
       evidence: "Certificate ID SDMEL0335 with active online verification portal and certificate PDF in workspace.",
       verificationUrl: "https://sdmel2025.vercel.app/v?id=SDMEL0335"
+    },
+    {
+      category: "International Conference Participation",
+      title: "SDMEL 2026 Conference Participant & Delegate",
+      institution: "SDMEL International Conference",
+      status: "Verified",
+      evidence: "Active delegate and research co-author on sustainable development, machine learning, and emerging AI technologies.",
+      verificationUrl: "https://sdmel2025.vercel.app/v?id=SDMEL0335"
+    },
+    {
+      category: "Corporate Technology Certification",
+      title: "AI Fundamentals & Introduction to Artificial Intelligence",
+      institution: "IBM SkillsBuild",
+      status: "Verified",
+      evidence: "Official IBM SkillsBuild foundational certifications covering artificial intelligence paradigms, cognitive systems, and ethical AI.",
+      verificationUrl: undefined
     },
     {
       category: "Corporate Technology Training",
