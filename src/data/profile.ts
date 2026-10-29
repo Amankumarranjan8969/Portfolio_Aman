@@ -31,7 +31,7 @@ export const candidateProfile: Profile = {
   bio: "B.Tech Computer Science (Data Science) undergraduate at Haridwar University with verified research experience at the National Institute of Hydrology (NIH) Roorkee and CSIR-CBRI. Specialized in time-series forecasting, explainable AI, hybrid ML architectures, and full-stack software development.",
   about: [
     "I design and build data-driven systems, applied machine learning pipelines, and robust full-stack software applications. My research emphasizes hydro-climatic forecasting, atmospheric modeling, and explainable AI.",
-    "During my dissertation research at the National Institute of Hydrology (NIH) Roorkee under Dr. Sushindra Kumar Gupta, I developed JAL-SETU, an explainable AI and RAG-driven seasonal groundwater forecasting framework across 7 semi-arid districts in Rajasthan.",
+    "During my dissertation research at the National Institute of Hydrology (NIH) Roorkee under Dr. Sushindra Kumar Gupta, I developed NAYA-PANI, an explainable AI and RAG-driven seasonal groundwater forecasting framework across 7 semi-arid districts in Rajasthan.",
     "At CSIR–Central Building Research Institute (CBRI), I engineered multi-hybrid predictive systems combining gradient boosting (CatBoost, LightGBM, XGBoost) and autoregressive time-series models (ARIMA/SARIMAX), achieving high R² scores and 5-year environmental projections."
   ],
   education: {

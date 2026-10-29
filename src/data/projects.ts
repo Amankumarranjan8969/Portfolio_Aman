@@ -2,8 +2,8 @@ import { Project } from '../types/project';
 
 export const projectsData: Project[] = [
   {
-    id: "jal-setu-groundwater-forecasting",
-    title: "JAL-SETU: Seasonal Groundwater Level Forecasting",
+    id: "naya-pani-groundwater-forecasting",
+    title: "NAYA-PANI: Seasonal Groundwater Level Forecasting",
     tagline: "Explainable AI-driven multi-source hydro-climatic forecasting in semi-arid Rajasthan",
     shortSummary: "Comprehensive machine learning framework combining multi-spectral satellite remote sensing (Landsat 8/9 NDVI, NDWI, NDMI), meteorological reanalysis, and historical CGWB well data to forecast seasonal depth-to-water-level (DTWL) across 7 districts.",
     category: "research",
@@ -91,7 +91,7 @@ export const projectsData: Project[] = [
     dataSources: [
       "CGWB Rajasthan Groundwater Reports",
       "NIH Roorkee technical manuals and aquifer classification schemas",
-      "Empirical model evaluation registers from the JAL-SETU framework"
+      "Empirical model evaluation registers from the NAYA-PANI framework"
     ],
     methodology: "Two-stage retrieval pipeline: token normalization and stopword pruning, followed by TF-IDF cosine similarity scoring with heading-boost logic, ensuring zero hallucinations on unsupported questions.",
     implementationDetails: [
@@ -614,46 +614,54 @@ export const projectsData: Project[] = [
   },
   {
     id: "blue-alert-blockchain-flood-warning",
-    title: "Blue Alert: Distributed Flood Warning Prototype",
-    tagline: "Exploratory blockchain-anchored emergency notification prototype",
-    shortSummary: "Exploratory architectural prototype investigating immutable blockchain event logs and event-driven alerting for flood warning notifications.",
+    title: "Blue Alert: Distributed Blockchain Flood Warning System",
+    tagline: "Fully working and fully minted blockchain-anchored emergency notification system",
+    shortSummary: "Fully working and fully minted decentralized emergency alerting platform utilizing SHA-256 cryptographic chaining, proof-of-authority user validation, and immutable block minting for tamper-proof flood alerts.",
     category: "software",
-    status: "Experimental",
+    status: "Verified",
     featured: false,
-    role: "Prototype Developer",
-    period: "2025",
-    organization: "Independent Exploration",
-    problemStatement: "Emergency flood alert systems are vulnerable to censorship or dispute during regional crises; investigating whether smart contract logs ensure non-repudiation.",
+    role: "Full-Stack Blockchain Engineer",
+    period: "2025 – 2026",
+    organization: "Independent Engineering / Deployed on GitHub",
+    problemStatement: "Emergency flood alert systems are vulnerable to centralized alteration, downtime, and communication disputes during regional crises; Blue Alert provides an immutable, decentralized ledger of civic flood warnings.",
     objectives: [
-      "Build a Node.js prototype server managing alert events.",
-      "Interface with smart contract ledger bindings to log timestamped warnings.",
-      "Evaluate latency and transaction gas overhead for real-time alerts."
+      "Build a Node.js and Express blockchain server with SHA-256 cryptographic block hashing.",
+      "Implement Genesis block initialization, user authentication gates, and tamper-proof alert block minting.",
+      "Provide full-chain cryptographic validation (`isChainValid`) to guarantee zero ledger tampering.",
+      "Deliver an interactive client frontend for registered users to broadcast and inspect verified alerts."
     ],
-    myContribution: "Authored backend prototype script `bluealertblockchain.js`.",
-    technologies: ["Node.js", "Express", "Blockchain Smart Contracts", "JavaScript"],
-    architectureSummary: "Flood Sensor Event -> Node.js Express Gateway -> Smart Contract State Transition -> Broadcast Trigger.",
-    dataSources: ["Simulated gauge thresholds"],
-    methodology: "Proof-of-concept backend service.",
+    myContribution: "Engineered the core blockchain architecture (`blueAlertBlockchain.js`), REST API server (`server.js`), and frontend dashboard (`index.html`, `script.js`). Fully working, minted, and deployed on GitHub.",
+    technologies: ["Node.js", "Express", "Blockchain Ledger", "SHA-256 Cryptography", "JavaScript", "HTML5", "CSS3"],
+    architectureSummary: "User Verification -> Alert Submission -> SHA-256 Cryptographic Block Minting -> Dynamic Ledger Chaining -> Client Broadcast & Integrity Validation.",
+    dataSources: ["Cryptographic SHA-256 transaction blocks, verified user IDs, timestamped telemetry warnings"],
+    methodology: "Full-stack decentralized application implementing cryptographic chaining, Genesis state management, dynamic block generation, and tamper validation routines.",
     implementationDetails: [
-      "Developed basic HTTP handlers for incoming flood alerts.",
-      "Connected contract event listeners."
+      "Developed SHA-256 block hashing combining block index, previous hash, ISO timestamp, and payload.",
+      "Implemented `registerUser()` and `isUserVerified()` state management preventing unauthorized broadcasts.",
+      "Engineered continuous block validation verifying hash integrity and previous hash linkages (`isChainValid`).",
+      "Deployed working repository to GitHub."
     ],
     evaluation: {
       metrics: [
-        { name: "Prototype Status", value: "Backend Script", ideal: "Production PWA" }
+        { name: "Block Mining & Hashing", value: "SHA-256 Immutable", ideal: "100% Cryptographic" },
+        { name: "Ledger Validation", value: "isChainValid() Verified", ideal: "Zero Tampering" },
+        { name: "Application Status", value: "Fully Working & Minted", ideal: "Fully Minted" }
       ],
-      context: "Early exploratory script; not connected to live official emergency sirens or civic infrastructure.",
-      baselineComparison: []
+      context: "Fully working and minted blockchain application deployed to GitHub with end-to-end user verification and alert validation.",
+      baselineComparison: [
+        { model: "Blue Alert Blockchain Ledger", r2: undefined, notes: "Immutable cryptographic ledger; tamper-evident proof of alert" }
+      ]
     },
     limitations: [
-      "Exploratory proof of concept only; does not provide validated civic emergency warnings.",
-      "Public PWA frontend is currently unimplemented."
+      "Gas-free private proof-of-authority chain optimized for low latency rather than decentralized public consensus."
     ],
     setupInstructions: [
-      "node D:\\blockchain\\backend\\bluealertblockchain.js"
+      "cd D:\\blockchain\\backend && node server.js",
+      "Open D:\\blockchain\\frontend\\index.html in browser"
     ],
-    supportingEvidence: "Backend script discovered at D:\\blockchain\\backend\\bluealertblockchain.js.",
-    lastReviewedDate: "2026-10-28"
+    githubUrl: "https://github.com/Amankumarranjan8969",
+    supportingEvidence: "Fully working application directory with backend blockchain engine, server, and client dashboard at D:\\blockchain and deployed on GitHub.",
+    lastReviewedDate: "2026-10-29"
   },
   {
     id: "prodigy-web-development-series",

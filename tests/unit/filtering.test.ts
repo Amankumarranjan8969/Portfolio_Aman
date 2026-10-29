@@ -23,7 +23,7 @@ describe('Project Search & Multi-Filter Logic', () => {
 
   it('should filter projects by verified evidence status', () => {
     const verified = projectsData.filter((p) => p.status === 'Verified');
-    expect(verified.length).toBe(10);
+    expect(verified.length).toBe(11);
 
     const inProgress = projectsData.filter((p) => p.status === 'In Progress');
     expect(inProgress.some((p) => p.id === 'self-learning-small-language-model')).toBe(true);
@@ -41,7 +41,7 @@ describe('Project Search & Multi-Filter Logic', () => {
     );
 
     expect(matches.length).toBeGreaterThan(0);
-    expect(matches.some((p) => p.id === 'jal-setu-groundwater-forecasting')).toBe(true);
+    expect(matches.some((p) => p.id === 'naya-pani-groundwater-forecasting')).toBe(true);
     expect(matches.some((p) => p.id === 'csir-cbri-hybrid-aqi-prediction')).toBe(true);
   });
 

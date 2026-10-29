@@ -24,7 +24,7 @@ Built as a high-performance, dark technical engineering dashboard, the platform 
 
 ### Key Architectural Standards:
 - **Zero Fabricated Claims**: All counts, project summaries, and model metrics are derived dynamically from verified primary records. Unconfirmed historical items are explicitly categorized as *Needs Verification* or *Experimental*.
-- **Empirical Research Benchmarking**: Houses authentic empirical evaluation tables from the candidate's B.Tech dissertation at NIH Roorkee (JAL-SETU: Cubist $R^2 = 0.9467$, CatBoost $R^2 = 0.9041$) and CSIR-CBRI atmospheric modeling research (SuperBlend $R^2 = 0.9180$).
+- **Empirical Research Benchmarking**: Houses authentic empirical evaluation tables from the candidate's B.Tech dissertation at NIH Roorkee (NAYA-PANI: Cubist $R^2 = 0.9467$, CatBoost $R^2 = 0.9041$) and CSIR-CBRI atmospheric modeling research (SuperBlend $R^2 = 0.9180$).
 - **Strict Separation of Concerns**: Structured TypeScript schemas decouple static data registers (`src/data/`) from reactive UI presentation components.
 - **Deep Accessibility & Performance**: WCAG AA color contrast, responsive sidebar/drawer navigation, keyboard navigation, and lightweight local SVG charts via Recharts.
 

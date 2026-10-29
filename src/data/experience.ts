@@ -14,7 +14,7 @@ export const experienceData: Experience[] = [
     ],
     description: "Conducted intensive academic dissertation research on data-driven seasonal groundwater depth forecasting across 7 hyper-arid and semi-arid districts in Rajasthan.",
     contributions: [
-      "Formulated the JAL-SETU framework pairing satellite remote sensing (Landsat 8/9 NDVI, NDWI, NDMI) with multi-decadal borehole monitoring.",
+      "Formulated the NAYA-PANI framework pairing satellite remote sensing (Landsat 8/9 NDVI, NDWI, NDMI) with multi-decadal borehole monitoring.",
       "Engineered temporal lag structures (t-1 to t-5) and implemented block time-series cross-validation to prevent temporal lookahead leakage.",
       "Tuned Cubist committee models, CatBoost, XGBoost, and Extra Trees, achieving peak Post-Monsoon R² of 0.9467 (RMSE 2.63m, MAE 1.83m).",
       "Engineered an explainable, deterministic TF-IDF RAG assistant module for contextual hydrological stakeholder interaction.",

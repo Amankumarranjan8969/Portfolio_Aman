@@ -133,7 +133,7 @@ export const ProfileLogoView: React.FC = () => {
 
               <div className="space-y-2 text-center sm:text-left">
                 <span className="text-base font-bold text-slate-900 dark:text-white">
-                  AKR Monogram (Aman Kumar Ranjan)
+                  Aman Kumar Ranjan
                 </span>
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-sans">
                   The mark features a clean structural 'A' vertex anchored on three coordinates, symbolizing the union of Machine Learning, Environmental Hydrology, and Full-Stack Systems.
@@ -167,7 +167,7 @@ export const ProfileLogoView: React.FC = () => {
                   <span>National Institute of Hydrology (NIH), Roorkee</span>
                 </div>
                 <p className="text-slate-500 dark:text-slate-400">
-                  Dissertation Research Fellow under <strong>Dr. Sushindra Kumar Gupta</strong> (Scientist 'C', Ground Water Hydrology Division). Authored 100+ page institutional thesis on JAL-SETU.
+                  Dissertation Research Fellow under <strong>Dr. Sushindra Kumar Gupta</strong> (Scientist 'C', Ground Water Hydrology Division). Authored 100+ page institutional thesis on NAYA-PANI.
                 </p>
               </div>
 

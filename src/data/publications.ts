@@ -27,8 +27,8 @@ export const publicationsData: Publication[] = [
     keywords: ["Voice AI", "Acoustic Modeling", "Rural Telephony", "Deep Learning", "Inclusive Technology"]
   },
   {
-    id: "jal-setu-nih-dissertation",
-    title: "JAL-SETU: A Retrieval-Augmented, Explainable AI Framework for Conversational Seasonal Groundwater Level Forecasting Using Multi-Source Hydro-Climatic Data in Semi-Arid Rajasthan",
+    id: "naya-pani-nih-dissertation",
+    title: "NAYA-PANI: A Retrieval-Augmented, Explainable AI Framework for Conversational Seasonal Groundwater Level Forecasting Using Multi-Source Hydro-Climatic Data in Semi-Arid Rajasthan",
     type: "Academic Dissertation",
     venue: "National Institute of Hydrology (NIH), Roorkee & Haridwar University",
     year: 2026,

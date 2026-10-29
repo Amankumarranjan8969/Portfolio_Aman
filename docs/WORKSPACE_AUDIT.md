@@ -57,7 +57,7 @@ Primary source artifacts were discovered and inspected on disk:
 
 1. **National Institute of Hydrology (NIH), Roorkee**:
    - Official B.Tech Dissertation Writeup: `D:\AMAN REPORT NIH ROORKEE222222.docx` & `D:\DISSERTATION WRITEUP Aman.docx`.
-   - Title: *JAL-SETU: A Retrieval-Augmented, Explainable AI Framework for Conversational Seasonal Groundwater Level Forecasting Using Multi-Source Hydro-Climatic Data in Semi-Arid Rajasthan*.
+   - Title: *NAYA-PANI: A Retrieval-Augmented, Explainable AI Framework for Conversational Seasonal Groundwater Level Forecasting Using Multi-Source Hydro-Climatic Data in Semi-Arid Rajasthan*.
    - Institutional Supervisor: Dr. Sushindra Kumar Gupta (Scientist 'C', Groundwater Hydrology Division, NIH Roorkee).
    - Institutional Director: Dr. Y.R.S. Rao (Director, NIH Roorkee).
    - Degree: B.Tech Computer Science & Engineering (Data Science), Haridwar University Roorkee (Enrolment No: 230103001).

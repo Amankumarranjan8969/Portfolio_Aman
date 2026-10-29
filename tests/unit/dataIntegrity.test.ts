@@ -48,8 +48,8 @@ describe('Data Integrity & Evidence Standards', () => {
     const inProgressProjects = projectsData.filter((p) => p.status === 'In Progress' || p.status === 'Experimental').length;
     const needsVerificationProjects = projectsData.filter((p) => p.status === 'Needs Verification').length;
 
-    expect(verifiedProjects).toBe(10);
-    expect(inProgressProjects).toBe(4); // SLM, Punpun digital twin, Blue alert, Portfolio
+    expect(verifiedProjects).toBe(11);
+    expect(inProgressProjects).toBe(3); // SLM, Punpun digital twin, Portfolio
     expect(needsVerificationProjects).toBe(1); // FitMove
     expect(verifiedProjects + inProgressProjects + needsVerificationProjects).toBe(projectsData.length);
   });

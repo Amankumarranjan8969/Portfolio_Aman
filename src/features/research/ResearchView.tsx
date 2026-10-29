@@ -47,7 +47,7 @@ export const ResearchView: React.FC = () => {
         </p>
       </div>
 
-      {/* Flagship Research 1: NIH Roorkee JAL-SETU */}
+      {/* Flagship Research 1: NIH Roorkee NAYA-PANI */}
       <Card>
         <div className="flex flex-col lg:flex-row items-start justify-between gap-4 pb-5 border-b border-slate-100 dark:border-slate-800">
           <div>
@@ -56,7 +56,7 @@ export const ResearchView: React.FC = () => {
               <span className="text-xs font-mono text-blue-600 dark:text-cyan-400 font-semibold">National Institute of Hydrology (NIH), Roorkee</span>
             </div>
             <h2 className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
-              JAL-SETU: Seasonal Groundwater Forecasting & RAG Framework
+              NAYA-PANI: Seasonal Groundwater Forecasting & RAG Framework
             </h2>
             <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-0.5">
               Supervised by Dr. Sushindra Kumar Gupta (Scientist 'C', NIH Roorkee) • Enrolment No: 230103001

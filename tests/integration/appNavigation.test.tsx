@@ -46,7 +46,7 @@ describe('App Layout & Navigation Integration', () => {
     fireEvent.click(profileBtn);
 
     expect(screen.getByText('Profile, Identity & Personal Brand')).toBeInTheDocument();
-    expect(screen.getByText('AKR Monogram (Aman Kumar Ranjan)')).toBeInTheDocument();
+    expect(screen.getByText('Personal Engineering Monogram & Logo')).toBeInTheDocument();
     expect(screen.getByText('230103001')).toBeInTheDocument();
     expect(screen.getByText('Verified Candidate Photo')).toBeInTheDocument();
   });
@@ -74,8 +74,8 @@ describe('App Layout & Navigation Integration', () => {
     const projectsBtn = screen.getByRole('button', { name: /Projects 15/i });
     fireEvent.click(projectsBtn);
 
-    // Click on JAL-SETU project card
-    const projectCardTitle = screen.getByText('JAL-SETU: Seasonal Groundwater Level Forecasting');
+    // Click on NAYA-PANI project card
+    const projectCardTitle = screen.getByText('NAYA-PANI: Seasonal Groundwater Level Forecasting');
     fireEvent.click(projectCardTitle);
 
     // Modal should be open

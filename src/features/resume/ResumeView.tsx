@@ -41,7 +41,7 @@ Kendriya Vidyalaya Ramgarh Cantt (2022) | Class XII CBSE (77.0%)
 EXPERIENCE & RESEARCH
 1. National Institute of Hydrology (NIH), Roorkee (2025 - 2026)
    B.Tech Dissertation Research Fellow
-   - Formulated JAL-SETU seasonal groundwater level forecasting pipeline across 7 Rajasthan districts.
+   - Formulated NAYA-PANI seasonal groundwater level forecasting pipeline across 7 Rajasthan districts.
    - Tuned Cubist (R²=0.9467), CatBoost, and Extra Trees using Landsat remote sensing (NDVI, NDWI, NDMI).
    - Built deterministic TF-IDF RAG conversational assistant.
 
